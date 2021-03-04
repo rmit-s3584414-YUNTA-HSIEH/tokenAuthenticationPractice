@@ -1,0 +1,11 @@
+    server:
+    port: 8080 # 設定專案 port 為 8080
+    spring:
+      h2:
+        console:
+          enabled: true # 啟動 H2 console
+          path: /h2-console # 設定 H2 管理頁面路徑
+      datasource:
+        url: jdbc:h2:file:./src/main/resources/data/ironman;AUTO_SERVER=true  # 設定 H2 資料庫連線位置
+        username: ha # 設定資料庫登入使用者
+        password: Haha6304! # 設定資料庫登入密碼
