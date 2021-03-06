@@ -1,11 +1,17 @@
-    server:
-    port: 8080 # 設定專案 port 為 8080
-    spring:
-      h2:
-        console:
-          enabled: true # 啟動 H2 console
-          path: /h2-console # 設定 H2 管理頁面路徑
-      datasource:
-        url: jdbc:h2:file:./src/main/resources/data/ironman;AUTO_SERVER=true  # 設定 H2 資料庫連線位置
-        username: ha # 設定資料庫登入使用者
-        password: Haha6304! # 設定資料庫登入密碼
+server:
+  port: 8080  # 設定 Spring Boot 啟動 port
+spring:
+  h2: # 設定 H2 資料庫
+    console:
+      enabled: true
+      path: /h2-console
+  jpa: # 設定 JPA 相關設定
+    hibernate:
+    ddl-auto: update # 設定update值，表示只有第一次載入時需要自動建立資料表，其餘載入則是更新資料表結構
+    database-platform: H2 # 設定 JPA database 為 H2 資料庫
+    show-sql: true # 顯示 JPA 運行的SQL語法
+    generate-ddl: false
+  datasource:
+    url: jdbc:h2:file:./src/main/resources/data/ironman;AUTO_SERVER=true
+    username: ha # 設定資料庫登入使用者
+    password: Haha6304! # 設定資料庫登入密碼
